@@ -14,9 +14,6 @@ class GridLayout extends Component {
         super(props);
 
         this.state = {
-            cards: this.props.cards || [],
-            padding: this.props.padding || 0,
-            cardWidth: this.props.cardWidth || 0,
             gridWidth: 0,
             gridHeight: 0
         };
@@ -26,17 +23,17 @@ class GridLayout extends Component {
     }
 
     _renderCards() {
-        let cardsPerRow = Math.floor(this.state.gridWidth / (this.state.cardWidth + this.state.padding));
+        let cardsPerRow = Math.floor(this.state.gridWidth / (this.props.cardWidth + this.props.padding));
 
-        if (cardsPerRow > this.state.cards.length) {
-            cardsPerRow = this.state.cards.length
+        if (cardsPerRow > this.props.cards.length) {
+            cardsPerRow = this.props.cards.length
         }
 
-        const width = ((cardsPerRow * (this.state.cardWidth + this.state.padding)) - this.state.padding) + "px";
+        const width = ((cardsPerRow * (this.props.cardWidth + this.props.padding)) - this.props.padding) + "px";
 
         return (
             <div style={Object.assign({}, styles.cardsContainer, { width })}>
-                {this.state.cards.map((card, index) => {
+                {this.props.cards.map((card, index) => {
                     const paddingRight = (index + 1) % cardsPerRow !== 0 ? "24px" : 0;
                     const paddingTop = (index + 1) > cardsPerRow ? "24px" : 0;
 
