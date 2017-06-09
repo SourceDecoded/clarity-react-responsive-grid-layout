@@ -2092,7 +2092,7 @@ var GridLayout = function (_Component) {
     }, {
         key: "componentWillUnmount",
         value: function componentWillUnmount() {
-            window.removeEventListener("resize");
+            window.removeEventListener("resize", this._updateDimensions);
         }
     }, {
         key: "render",

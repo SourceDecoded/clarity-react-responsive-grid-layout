@@ -63,7 +63,7 @@ class GridLayout extends Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener("resize");
+        window.removeEventListener("resize", this._updateDimensions);
     }
 
     render() {
