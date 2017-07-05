@@ -26,22 +26,22 @@ class GridLayout extends Component {
         let cardsPerRow = Math.floor(this.state.gridWidth / (this.props.cardWidth + this.props.padding));
 
         if (cardsPerRow > this.props.cards.length) {
-            cardsPerRow = this.props.cards.length
+            cardsPerRow = this.props.cards.length;
         }
 
-        const width = ((cardsPerRow * (this.props.cardWidth + this.props.padding)) - this.props.padding) + "px";
+        const width = cardsPerRow * (this.props.cardWidth + this.props.padding) - this.props.padding + "px";
 
         return (
             <div style={Object.assign({}, styles.cardsContainer, { width })}>
                 {this.props.cards.map((card, index) => {
-                    const paddingRight = (index + 1) % cardsPerRow !== 0 ? "24px" : 0;
-                    const paddingTop = (index + 1) > cardsPerRow ? "24px" : 0;
+                    const paddingRight = (index + 1) % cardsPerRow !== 0 ? `${this.props.padding}px` : 0;
+                    const paddingTop = index + 1 > cardsPerRow ? `${this.props.padding}px` : 0;
 
                     return (
                         <div style={Object.assign({}, styles.card, { paddingRight, paddingTop })} key={"CARD_" + index}>
                             {card}
                         </div>
-                    )
+                    );
                 })}
             </div>
         );
@@ -70,7 +70,7 @@ class GridLayout extends Component {
         const { style } = this.props;
 
         return (
-            <div style={style} ref={gridElement => this.grid = gridElement}>
+            <div style={style} ref={gridElement => (this.grid = gridElement)}>
                 {this._renderCards()}
             </div>
         );
