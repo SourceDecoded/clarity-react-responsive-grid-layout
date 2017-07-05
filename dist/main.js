@@ -2049,6 +2049,8 @@ var GridLayout = function (_Component) {
     _createClass(GridLayout, [{
         key: "_renderCards",
         value: function _renderCards() {
+            var _this2 = this;
+
             var cardsPerRow = Math.floor(this.state.gridWidth / (this.props.cardWidth + this.props.padding));
 
             if (cardsPerRow > this.props.cards.length) {
@@ -2061,8 +2063,8 @@ var GridLayout = function (_Component) {
                 "div",
                 { style: Object.assign({}, styles.cardsContainer, { width: width }) },
                 this.props.cards.map(function (card, index) {
-                    var paddingRight = (index + 1) % cardsPerRow !== 0 ? "24px" : 0;
-                    var paddingTop = index + 1 > cardsPerRow ? "24px" : 0;
+                    var paddingRight = (index + 1) % cardsPerRow !== 0 ? _this2.props.padding + "px" : 0;
+                    var paddingTop = index + 1 > cardsPerRow ? _this2.props.padding + "px" : 0;
 
                     return _react2.default.createElement(
                         "div",
@@ -2097,7 +2099,7 @@ var GridLayout = function (_Component) {
     }, {
         key: "render",
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             var style = this.props.style;
 
@@ -2105,7 +2107,7 @@ var GridLayout = function (_Component) {
             return _react2.default.createElement(
                 "div",
                 { style: style, ref: function ref(gridElement) {
-                        return _this2.grid = gridElement;
+                        return _this3.grid = gridElement;
                     } },
                 this._renderCards()
             );
