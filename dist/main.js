@@ -2061,7 +2061,7 @@ var GridLayout = function (_Component) {
 
             return _react2.default.createElement(
                 "div",
-                { style: Object.assign({}, styles.cardsContainer, { width: width }) },
+                { style: Object.assign({}, this.props.leftAlign ? {} : styles.cardsContainer, { width: width }) },
                 this.props.cards.map(function (card, index) {
                     var paddingRight = (index + 1) % cardsPerRow !== 0 ? _this2.props.padding + "px" : 0;
                     var paddingTop = index + 1 > cardsPerRow ? _this2.props.padding + "px" : 0;

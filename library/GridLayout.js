@@ -32,7 +32,7 @@ class GridLayout extends Component {
         const width = cardsPerRow * (this.props.cardWidth + this.props.padding) - this.props.padding + "px";
 
         return (
-            <div style={Object.assign({}, styles.cardsContainer, { width })}>
+            <div style={Object.assign({}, this.props.leftAlign ? {} : styles.cardsContainer, { width })}>
                 {this.props.cards.map((card, index) => {
                     const paddingRight = (index + 1) % cardsPerRow !== 0 ? `${this.props.padding}px` : 0;
                     const paddingTop = index + 1 > cardsPerRow ? `${this.props.padding}px` : 0;
