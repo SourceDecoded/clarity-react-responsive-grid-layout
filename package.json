@@ -1,6 +1,6 @@
 {
     "name": "clarity-react-responsive-grid-layout",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "A responsive grid layout for React apps.",
     "main": "dist/main.js",
     "license": "MIT",

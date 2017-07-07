@@ -55,3 +55,7 @@ export default TestComponent;
 
 #### `cards` [React.Component]
 * The array of card components that will be rendered in order on the gridLayout.
+
+#### `leftAlign` boolean
+* Align the cards to the left side of the grid.
+* NOTE: If not supplied the default is to center the cards on the grid.
