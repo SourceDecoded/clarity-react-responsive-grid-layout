@@ -24,6 +24,7 @@ class GridLayout extends Component {
 
     _renderCards() {
         let cardsPerRow = Math.floor(this.state.gridWidth / (this.props.cardWidth + this.props.padding));
+        cardsPerRow === 0 ? (cardsPerRow = 1) : (cardsPerRow = cardsPerRow);
 
         if (cardsPerRow > this.props.cards.length) {
             cardsPerRow = this.props.cards.length;
